@@ -16,7 +16,29 @@
         String empty = ""; // 空字符串，length() == 0
         String none = null;  // null 引用
         ```
+## Type Conversion / 类型转换
 
+- **隐式类型转换（自动转换）Implicit Conversion**
+        - 小范围 → 大范围：自动完成（如 int → double）
+        ```java
+        int i = 10;
+        double d = i; // int 自动转 double
+        ```
+
+- **显示类型转换（强制转换）Explicit Conversion (Casting)**
+        - 大范围 → 小范围：需强制转换，否则报错（如 double → int）
+        ```java
+        double d2 = 3.14;
+        int i2 = (int)d2; // 强制类型转换，结果为 3
+        ```
+
+- **字符与数字的转换**
+        ```java
+        char c = 'A';
+        int code = c;      // char 隐式转 int，结果 65
+        char c2 = (char)66; // int 显式转 char，结果 'B'
+        ```
+```
 
 ## Data Types / 数据类型
 
@@ -47,7 +69,8 @@
         String line = sc.nextLine();       // 读取整行（包含空格）
 
         sc.close();                         //释放底层资源
-        ```
+                        ```
+
 
 ## Operations / 运算符
 
@@ -59,6 +82,8 @@
         int r2 = a / b; // 3  （整数除法，余数被丢弃）
         double r3 = (double)a / b; // 3.5（浮点除法）
         int mod = a % b; // 1
+        double pow = Math.pow(a, b); // 幂运算，a 的 b 次方（如 7^2=49）
+        double sqrt = Math.sqrt(a); // 平方根运算
         ```
 
 - 一元运算 (Unary): `+ - ++ -- !`
