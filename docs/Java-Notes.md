@@ -1,5 +1,14 @@
 # Java Notes
-
+```java
+int x; // 声明int类型变量x
+x = 234; // 赋值
+byte b = 89; // 声明并赋值
+boolean isFun = true; // 布尔值
+double d = 3456.98; // 双精度浮点数
+char c = 'f'; // 字符（单引号）
+long big = 3456789L; // long类型需加L/l后缀
+float f = 32.5f; // float类型需加F/f后缀
+```
 ## Character
 
         ```java
@@ -119,4 +128,26 @@ int bits = 1 << 3; // 左移：8
 ```java
 String s2 = "hi";
 boolean isStr = s2 instanceof String; // true
+```
+
+
+遍历数组的快速生成方式
+数组名.fori 回车
+
+
+数组
+```java
+int arr[] = new int[]{}
+int arr[] = {}
+
+//动态
+int arr[] = new int[5]
+```
+
+格式化代码
+crtl alt L
+
+
+```java
+Random = new random()
 ```
