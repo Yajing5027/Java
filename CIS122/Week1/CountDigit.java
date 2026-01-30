@@ -12,7 +12,6 @@ the value 7.
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int x = in.nextInt();
-        in.close();
 
         // 方法1: int转字符串
         String y = x + "";      // int转字符串常用写法：x + "" 或 String.valueOf(x)
@@ -33,5 +32,37 @@ the value 7.
             count2 += judge;
         }
         System.out.println(count2);
+
+        // 运行附加题
+        checkDivisibleBy3(in);
+
+        in.close();
+    }
+
+/*
+Whether the number is divisible by 3？
+
+    数学原理：基于同余定理（modulo m）。
+    - 对于任意模数 m，如果满足 10 ≡ 1 (mod m)，则对于任意非负整数 k 有 10^k ≡ 1 (mod m)，
+        因此任意整数与其各位数字之和在 mod m 下同余（即原数 ≡ 各位之和 (mod m)）。
+    - 换言之：该“各位和判定”在模 m 下成立的充要条件是 10 ≡ 1 (mod m)。
+    - 进一步可以证明 10 ≡ 1 (mod m) 等价于 m | 9（m 是 9 的约数），因此规则对能整除 9 的模数成立（例如 m=9）。
+    - 对于其他模数（例如 2、5、7），10 在 mod m 下不等于 1，所以“各位和”不能通用地判断是否能被该 m 整除。
+*/
+   
+    public static void checkDivisibleBy3(Scanner in) {
+        System.out.print("输入一个整数: ");
+        int num = in.nextInt();
+
+        int sum = 0;
+        int temp = num;
+        while (temp > 0) {
+            sum += temp % 10;  // 取出最后一位加到sum
+            temp /= 10;        // 去掉最后一位
+        }
+
+        boolean isDivisible = (sum % 3 == 0);
+        System.out.println("各位数字之和: " + sum);
+        System.out.println(num + " 能被3整除: " + isDivisible);
     }
 }

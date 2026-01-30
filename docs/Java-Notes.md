@@ -94,6 +94,10 @@ float f = 32.5f; // float类型需加F/f后缀
         double pow = Math.pow(a, b); // 幂运算，a 的 b 次方（如 7^2=49）
         double sqrt = Math.sqrt(a); // 平方根运算
         ```
+不同类型间不能进行运算，java会自动进行隐式转换
+注意整数相除结果还是整数，就是商，没有余数
+小数直接参与计算，结果可能不正确
+
 
 - 一元运算 (Unary): `+ - ++ -- !`
 ```java
@@ -109,10 +113,12 @@ boolean eq = (a == b);
 boolean lt = (a < b);
 ```
 
-- 逻辑运算 (Logical): `&& || !`（`&&`/`||` 有短路特性）
+- 逻辑运算 (Logical): `&& || !`（`&&`/`||` 有短路特性 and遇F直接结束 or遇T直接结束）
 ```java
 boolean cond = (a > 0) && (b > 0); // 如果左边为 false，右边不会计算
 ```
+短路逻辑运算符
+
 
 - 三元运算 (Ternary): `?:`
 ```java
@@ -130,9 +136,66 @@ String s2 = "hi";
 boolean isStr = s2 instanceof String; // true
 ```
 
+类型转换
+隐式转换：小转大 byte short int long float double 
+核心就是在前面补0凑bit位
+        byte b = 10; // 8位:   00001010
+        short s = b; // 16位:  00000000 00001010
+        int i = s;   // 32位:  00000000 00000000 00000000 00001010
+        long l = i;  // 64位:  00000000 00000000 00000000 00000000 00000000 00000000 00000000 00001010
 
-遍历数组的快速生成方式
-数组名.fori 回车
+        float f = i; // int转float，数值不变，精度提升（补0在二进制表示的高位）
+        double d = f; // float转double，补0扩展到64位
+
+如果是byte/short类型数据进行运算，java会自动先提升为int类型
+        // 例：
+        byte b1 = 10, b2 = 20;
+        // byte b3 = b1 + b2; // 错误，b1+b2结果是int，不能直接赋值给byte
+        int sum = b1 + b2;    // 正确，b1+b2自动提升为int
+
+如果小跟大进行运算，java会自动先把小的提升为大的
+        // 例：
+        int i = 10;
+        double d = 3.14;
+        double result = i + d; // i 自动提升为 double，结果是 double 类型
+
+char 本质上就是一个数字（Unicode 编码/ASCII 编码），但打印时会显示对应的字符。
+char 和 int 可以互相转换：char 转 int 得到编码，int 转 char 得到字符。
+
+
+
+强制/显式转换：大转小
+目标类型 变量名 = （目标类型）数据
+        // 例：
+        double d = 3.99;
+        int i = (int)d;         // i = 3，强制类型转换，直接截断小数部分
+        // 例：
+        byte b1 = 10, b2 = 20;
+        byte b3 = (byte)(b1 + b2);      // b3=30 强制转回byte，b1+b2结果先被自动提升为int，再手动强制转回byte
+        byte b4 = (byte)b1 + b2;       // 实际等价于 (byte)b1 + b2，即10+20=30，(byte)30=30，b4=30
+        // 但如果是 byte b5 = (byte)(b1 + 130); // b1=10, 10+130=140, (byte)140=-116（超出byte范围，溢出）
+
+
+
+
+字符运算
+会查询ASCII
+大小写转换：大到小差32
+```java
+char letter1 = "A";     //大写
+char letter2 = (char)(letter1 + 32);    //小写
+
+```
+
+
+字符串运算：只有+的拼接操作
+从左往右依次进行
+```java
+System.out.println(1 + 8 + "岁" + 1 + 2); // 输出: 9岁12
+```
+
+
+
 
 
 数组
@@ -143,6 +206,10 @@ int arr[] = {}
 //动态
 int arr[] = new int[5]
 ```
+遍历数组的快速生成方式
+数组名.fori 回车
+
+
 
 格式化代码
 crtl alt L
