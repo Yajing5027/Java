@@ -7,13 +7,25 @@ all the integer values in an array. The one parameter coming into the method is 
 array of integers. The integer value returned is the sum of these integers.
 */
     
-    public static int sumArray(int values[]){
+    public static int sumArray1(int values[]){
         int sum = 0;
         for (int i = 0; i < values.length;i++){
             sum += values[i];
         }
         return sum;
     }
+
+    // 进阶
+    public static int sumArray(int values[]){
+        int sum = 0;
+        for (int each : values){    // for-each循环：for (类型 名 : 原数组) {} 只能正序枚举法遍历数组所有元素，无法操作索引
+            sum += each;    // 直接对元素进行操作
+        }
+        return sum;
+    }
+    
+
+
 
 /*
 Complete the method named averagePrice, in the program below, named Prices.java, 
@@ -44,8 +56,7 @@ the integer 42.
     public static int countOccurs(int[] theArray, int theInt){
         int result = 0;
         for (int i = 0;i < theArray.length;i++){
-            int check = theArray[i] == theInt ? 1:0;
-            result += check;
+            result += (theArray[i] == theInt ? 1:0);    // 由于三元运算符运算必须返回值，直接代入要加()
         }
         return result;
     }
@@ -66,6 +77,7 @@ becomes
 */
 
     public void swapAdjacentElements(int[] values){
+        /* 删删删
         if (values.length % 2 == 0) {
             for (int i = 0; i<values.length;){
                 int a = values[i];
@@ -80,6 +92,14 @@ becomes
                 values[i+1] = a;
                 i+=2;
             }
+        }
+        */
+       // 自己找不同吧，i<values.length-1可以作为通用奇偶条件
+        for (int i = 0; i<values.length-1;){
+            int a = values[i];
+            values[i] = values[i+1];
+            values[i+1] = a;
+            i+=2;
         }
    }
 
@@ -98,6 +118,7 @@ becomes
 */
 
     public void swapFirstAndSecondHalf(int[] values){
+        /* 删删删
         if (values.length % 2 == 0){
             for (int i = 0; i < values.length/2;i++){
                 int a = values[i];
@@ -111,5 +132,16 @@ becomes
                 values[values.length/2+1+i] = a;
             }
         }
+        */
+        int offset = values.length % 2==0 ? 0 : 1;
+
+        for (int i = 0; i < values.length/2;i++){
+            int a = values[i];
+            values[i] = values[values.length/2+offset+i];
+            values[values.length/2+offset+i] = a;
+        }
+
+
+
     }
 }
