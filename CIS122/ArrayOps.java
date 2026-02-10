@@ -1,4 +1,4 @@
-package CIS122.Week1;
+package CIS122;
 
 public class ArrayOps {
 /*
@@ -7,7 +7,7 @@ all the integer values in an array. The one parameter coming into the method is 
 array of integers. The integer value returned is the sum of these integers.
 */
     
-    public static int sumArray1(int values[]){
+    public static int sumArray1(int values[]){      // 要求返回int值
         int sum = 0;
         for (int i = 0; i < values.length;i++){
             sum += values[i];
@@ -18,7 +18,8 @@ array of integers. The integer value returned is the sum of these integers.
     // 进阶
     public static int sumArray(int values[]){
         int sum = 0;
-        for (int each : values){    // for-each循环：for (类型 名 : 原数组) {} 只能正序枚举法遍历数组所有元素，无法操作索引
+        for (int each : values){    // enhanced for loop：for (类型 名 : 原数组) {} 只能正序枚举法遍历数组所有元素，无法操作索引
+            // Python中的for-in循环：for each in values:  # Python的for-in循环可以直接遍历数组元素
             sum += each;    // 直接对元素进行操作
         }
         return sum;
@@ -94,7 +95,7 @@ becomes
             }
         }
         */
-       // 自己找不同吧，i<values.length-1可以作为通用奇偶条件
+        // 自己找不同吧，i<values.length-1可以作为通用奇偶条件
         for (int i = 0; i<values.length-1;){
             int a = values[i];
             values[i] = values[i+1];
@@ -133,6 +134,7 @@ becomes
             }
         }
         */
+        // 咱以后找不同 然后拼在一起 好不好
         int offset = values.length % 2==0 ? 0 : 1;
 
         for (int i = 0; i < values.length/2;i++){
@@ -140,8 +142,5 @@ becomes
             values[i] = values[values.length/2+offset+i];
             values[values.length/2+offset+i] = a;
         }
-
-
-
     }
 }

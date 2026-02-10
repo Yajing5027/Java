@@ -1,4 +1,4 @@
-package CIS122.Week1;
+package CIS122;
 
 import java.util.Scanner;
 

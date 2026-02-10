@@ -61,6 +61,13 @@ float f = 32.5f; // float类型需加F/f后缀
 	- `char` 2 bytes
 	- `boolean`
 
+java默认值 
+类型 例子 输出值
+整数型	byte、short、int、long	0
+浮点型	float、double	0.0
+字符型	char	'\u0000'（空字符，控制台输出可能显示为空白）
+布尔型	boolean	false
+
 ## Keyboard Input / 从键盘读取
 
 - `java.util.Scanner`
@@ -137,6 +144,9 @@ boolean isStr = s2 instanceof String; // true
 ```
 
 类型转换
+int x = 24; 
+byte b = x;     // 大转小时编译器会直接报错
+byte < short < int < long < float < double  //char是无符号16位，和short范围部分重叠
 隐式转换：小转大 byte short int long float double 
 核心就是在前面补0凑bit位
         byte b = 10; // 8位:   00001010
@@ -146,6 +156,7 @@ boolean isStr = s2 instanceof String; // true
 
         float f = i; // int转float，数值不变，精度提升（补0在二进制表示的高位）
         double d = f; // float转double，补0扩展到64位
+取值范围 - n位有符号整数：-2^{n-1} ～ 2^{n-1} - 1
 
 如果是byte/short类型数据进行运算，java会自动先提升为int类型
         // 例：
