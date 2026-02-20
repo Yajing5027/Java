@@ -1,6 +1,5 @@
 package CIS122;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -73,7 +72,7 @@ class PalFind{
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         String userInput = in.nextLine();
-        userInput = userInput.toLowerCase();        //所有转小写
+        userInput = userInput.toLowerCase();        // .toLowerCase所有转小写
         in.close();
 
         boolean flat = true;
