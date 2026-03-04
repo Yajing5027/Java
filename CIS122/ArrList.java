@@ -57,7 +57,7 @@ public class ArrList {
 
 
 
-    public static ArrayList copyArray(int[] anArray){
+    public static ArrayList copyArray0(int[] anArray){
     /*
     This method goes through the array of integers identified by
     the only parameter, creating a new ArrayList from the array,
@@ -83,7 +83,18 @@ public class ArrList {
 
         return result;
     }
+    // advanced
+    public static ArrayList copyArray(int[] anArray){
+        ArrayList<Integer> result = new ArrayList<>();
+        
+        for (int each : anArray){
+            if (!result.contains(each)){    // Arraylist.contains(元素)用于检查集合中是否包含指定元素，返回布尔值
+                result.add(each);
+            }
+        }
 
+        return result;
+    }
 
 
 
