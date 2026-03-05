@@ -4,7 +4,6 @@ public class Professor extends Person{
 
     public Professor() {
     }
-
     public Professor(String name, String username, String password) {
         super(name, username, password);
     }

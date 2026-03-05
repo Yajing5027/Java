@@ -3,7 +3,6 @@ package com.oop.polymorphism.CampusSystem;
 public class Student extends Person{
     public Student() {
     }
-
     public Student(String name, String username, String password) {
         super(name, username, password);
     }
