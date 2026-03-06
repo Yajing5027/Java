@@ -1,6 +1,6 @@
 package com.oop.polymorphism.CampusSystem;
 
-public class Student extends Person{
+public class Student extends User{
     public Student() {
     }
     public Student(String name, String username, String password) {
@@ -10,5 +10,9 @@ public class Student extends Person{
     @Override
     public void work(){
         System.out.println("Student learning.");
+    }
+
+    public void submitHomework(){
+        System.out.println("Submit succeeded.");
     }
 }

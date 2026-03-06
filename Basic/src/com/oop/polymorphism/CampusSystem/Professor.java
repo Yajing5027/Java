@@ -1,6 +1,6 @@
 package com.oop.polymorphism.CampusSystem;
 
-public class Professor extends Person{
+public class Professor extends User{
 
     public Professor() {
     }
@@ -11,5 +11,9 @@ public class Professor extends Person{
     @Override
     public void work(){
         System.out.println("Professor teaching.");
+    }
+
+    public void publishHomework(){
+        System.out.println("Publish succeeded");
     }
 }

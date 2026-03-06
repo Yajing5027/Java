@@ -11,7 +11,7 @@ public class Phone extends SmartDevice{
 
     @Override
     public double payment() {
-        return super.payment() * 0.9;
+        return super.payment() * 0.9;       // supuer.调用父类方法对返回结果进行操作
     }
     
 }

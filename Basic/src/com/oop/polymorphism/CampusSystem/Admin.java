@@ -1,6 +1,6 @@
 package com.oop.polymorphism.CampusSystem;
 
-public class Admin extends Person{
+public class Admin extends User{
 
     public Admin() {
     }
@@ -11,5 +11,9 @@ public class Admin extends Person{
     @Override
     public void work(){
         System.out.println("Admin managing.");
+    }
+
+    public void auditAccount(){
+        System.out.println("Audit succeeded.");
     }
 }
