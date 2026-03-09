@@ -1,4 +1,4 @@
-package com.oop.polymorphism.CampusSystem;
+package com.oop.polymorphismAndAbstract;
 /*
 多态：Dad D = new son() 有继承extends/实现implements关系
 父类引用（User）可以指向子类对象（Student, Professor, Admin），栈stack上是父类引用User，堆heap上真正创建的是子类对象
@@ -15,9 +15,11 @@ e.g. User u = new Student();
                  } else {
                      System.out.println("类型不匹配，无法转换");
                  }
-
 */
 
+/*
+抽象类不能实例化，这里的Person不能创建实例
+*/
 
 public class Test {
     public static void main(String[] args) {

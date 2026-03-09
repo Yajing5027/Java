@@ -1,4 +1,4 @@
-package com.oop.polymorphism.CampusSystem;
+package com.oop.polymorphismAndAbstract;
 
 public class Student extends User{
     public Student() {

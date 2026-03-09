@@ -1,4 +1,4 @@
-package com.oop.polymorphism.CampusSystem;
+package com.oop.polymorphismAndAbstract;
 
 public class Admin extends User{
 

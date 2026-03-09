@@ -1,6 +1,6 @@
-package com.oop.polymorphism.CampusSystem;
+package com.oop.polymorphismAndAbstract;
 
-public class Person {
+public abstract class Person {      // 抽象父类
     private String name;
     private String username;
     private String password;
@@ -33,7 +33,5 @@ public class Person {
     }
 
 
-    public void work(){
-        System.out.println("Everybody need work.");
-    }
+    public abstract void work();    // 抽象方法：不能加{}方法体，但是别忘了；
 }
